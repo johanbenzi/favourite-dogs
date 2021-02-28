@@ -1,6 +1,6 @@
 import React from "react";
 import styled from "styled-components";
-import { Col, Image } from "react-bootstrap";
+import { Col, ResponsiveEmbed } from "react-bootstrap";
 
 const StyledCol = styled(Col) `
     padding-top: 10px;
@@ -19,7 +19,9 @@ const StyledSpan = styled.span`
 function FavouriteTile(props) {
 	return (
         <StyledCol md={4}>
-            <Image src = {props.imageUrl} alt = "Error in loading" rounded fluid/>
+            <ResponsiveEmbed>
+                <embed src = {props.imageUrl} alt = "Error in loading"/>
+            </ResponsiveEmbed>
 		</StyledCol>
 	);
 }

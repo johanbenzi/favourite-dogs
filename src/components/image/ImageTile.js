@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import styled from "styled-components";
 import { useAppContext } from "../../AppContext";
-import { Col, Image } from "react-bootstrap";
+import { Col, Image, ResponsiveEmbed } from "react-bootstrap";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faHeart } from "@fortawesome/free-solid-svg-icons";
 import { faHeart as farHeart } from "@fortawesome/free-regular-svg-icons";
@@ -34,7 +34,9 @@ function ImageTile(props) {
 
 	return (
         <StyledCol md={4}>
-            <Image src = {props.imageUrl} alt = "Error in loading" rounded fluid/>
+            <ResponsiveEmbed>
+                <embed src = {props.imageUrl} alt = "Error in loading"/>
+            </ResponsiveEmbed>
             <StyledDiv>
                 {
                    isAddedToFav ?  
