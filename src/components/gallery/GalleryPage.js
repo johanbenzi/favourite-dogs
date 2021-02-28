@@ -4,6 +4,7 @@ import { useAppContext } from "../../AppContext";
 import GallerySet from './GallerySet';
 import { Button } from "react-bootstrap";
 import useHttp from '../../hooks/http';
+import { useHistory } from "react-router";
 import SpinnerWithOverlay from '../spinner/SpinnerWithOverlay';
 
 const TitleContainer = styled.div`
@@ -29,10 +30,20 @@ const MainContainer = styled.div`
 	top: 146px;
 `;
 
+const StyledSpan = styled.span`
+	margin-top: 20px;
+	float: right;
+`;
+
+const StyledButton = styled(Button)`
+    margin: 5px;
+`;
+
 function GalleryPage() {
     const { state, dispatch } = useAppContext();
     const { getRandomImages } = useHttp();
     const { loading } = state;
+    const history = useHistory();
 
     useEffect(() => {
 		    getRandomImages(dispatch);
@@ -41,8 +52,13 @@ function GalleryPage() {
 	return (
 		<>
             <TitleContainer>
-				<Title id='AppName'>Gallery</Title>
-                <Button onClick = {() => getRandomImages(dispatch)}>Next</Button>
+                <span>
+				    <Title>Gallery</Title>
+                </span>
+                <StyledSpan>
+                    <StyledButton onClick = { () => {history.push("/favourites")}}>Favourites</StyledButton>
+                    <Button onClick = {() => getRandomImages(dispatch)}>Refresh</Button>
+                </StyledSpan>
 			</TitleContainer>
             <MainContainer>
                 <GallerySet />
