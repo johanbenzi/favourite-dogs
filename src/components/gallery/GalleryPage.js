@@ -1,7 +1,10 @@
-import React from "react";
+import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useAppContext } from "../../AppContext";
-import GallerySet from './GallerySet'
+import GallerySet from './GallerySet';
+import { Button } from "react-bootstrap";
+import useHttp from '../../hooks/http';
+import SpinnerWithOverlay from '../spinner/SpinnerWithOverlay';
 
 const TitleContainer = styled.div`
 	display: flex;
@@ -27,17 +30,24 @@ const MainContainer = styled.div`
 `;
 
 function GalleryPage() {
-	const { state, dispatch } = useAppContext();
+    const { state, dispatch } = useAppContext();
+    const { getRandomImages } = useHttp();
+    const { loading } = state;
+
+    useEffect(() => {
+		    getRandomImages(dispatch);
+	}, []);
 
 	return (
 		<>
             <TitleContainer>
 				<Title id='AppName'>Gallery</Title>
+                <Button onClick = {() => getRandomImages(dispatch)}>Next</Button>
 			</TitleContainer>
             <MainContainer>
                 <GallerySet />
+                <SpinnerWithOverlay loading = { loading } spinnerLabel = {"loading"}/>
             </MainContainer>
-            
 		</>
 	);
 }

@@ -13,7 +13,8 @@ const AppContainer = styled.div`
 	padding: 0 24px 24px 24px;
 	overflow-y: hidden;
 	margin-top: 70px;
-	height: calc(100vh - 70px);
+    height: calc(100vh - 70px);
+    overflow: scroll;
 `;
 
 function App() {

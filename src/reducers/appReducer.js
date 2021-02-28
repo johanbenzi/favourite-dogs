@@ -1,6 +1,6 @@
 export const appInitialState = { 
     loading: false,
-    randomImageObjects: [123, 321]
+    randomImageUrls: []
 }
 
 export const appReducer = (state, action) => {
@@ -9,7 +9,12 @@ export const appReducer = (state, action) => {
 			return {
 				...state,
 				loading: action.payload
-		};
+        };
+        case "SET_RANDOM_IMAGES":
+			return {
+				...state,
+				randomImageUrls: action.payload
+        };
 
 		default:
 			return { ...state, appInitialState };
