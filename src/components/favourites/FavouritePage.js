@@ -1,11 +1,10 @@
 import React, { useEffect } from "react";
 import styled from "styled-components";
 import { useAppContext } from "../../AppContext";
-import GallerySet from './GallerySet';
+import FavouriteSet from './FavouriteSet';
 import { Button } from "react-bootstrap";
-import useHttp from '../../hooks/http';
 import { useHistory } from "react-router";
-import SpinnerWithOverlay from '../spinner/SpinnerWithOverlay';
+import useLocalStorage from "../../hooks/localstorage";
 
 const TitleContainer = styled.div`
 	display: flex;
@@ -39,33 +38,32 @@ const StyledButton = styled(Button)`
     margin: 5px;
 `;
 
-function GalleryPage() {
+function FavouritePage() {
     const { state, dispatch } = useAppContext();
-    const { getRandomImages } = useHttp();
-    const { loading } = state;
+    const  { favouriteImageUrls } =  state;
     const history = useHistory();
+    const { getAllFromLocalStorage, removeAllFromLocalStorage } = useLocalStorage();
 
     useEffect(() => {
-		    getRandomImages(dispatch);
+        getAllFromLocalStorage(dispatch);
 	}, []);
 
 	return (
 		<>
             <TitleContainer>
                 <span>
-				    <Title>Gallery</Title>
+				    <Title>Favourites</Title>
                 </span>
                 <StyledSpan>
-                    <StyledButton onClick = { () => {history.push("/favourites")}}>Favourites</StyledButton>
-                    <Button onClick = {() => getRandomImages(dispatch)}>Refresh</Button>
+                    <StyledButton onClick = { () => {history.push("/")}}>Gallery</StyledButton>
+                    <StyledButton disabled={ favouriteImageUrls.length === 0 } onClick = { () => removeAllFromLocalStorage(dispatch) }>Clear</StyledButton>
                 </StyledSpan>
 			</TitleContainer>
             <MainContainer>
-                <GallerySet />
-                <SpinnerWithOverlay loading = { loading } spinnerLabel = {"loading"}/>
+                <FavouriteSet />
             </MainContainer>
 		</>
 	);
 }
 
-export default GalleryPage;
+export default FavouritePage;

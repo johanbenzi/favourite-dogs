@@ -4,6 +4,7 @@ import ContextProvider from "./ContextProvider";
 import styled from "styled-components";
 import Routes from "./routes";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AppContainer = styled.div`
 	background: #e7e8ea;
@@ -12,7 +13,8 @@ const AppContainer = styled.div`
 	padding: 0 24px 24px 24px;
 	overflow-y: hidden;
 	margin-top: 70px;
-	height: calc(100vh - 70px);
+    height: calc(100vh - 70px);
+    overflow: scroll;
 `;
 
 function App() {

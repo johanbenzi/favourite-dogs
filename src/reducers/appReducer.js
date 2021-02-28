@@ -1,5 +1,7 @@
 export const appInitialState = { 
-    loading: false
+    loading: false,
+    randomImageUrls: [],
+    favouriteImageUrls: [],
 }
 
 export const appReducer = (state, action) => {
@@ -8,7 +10,17 @@ export const appReducer = (state, action) => {
 			return {
 				...state,
 				loading: action.payload
-		};
+        };
+        case "SET_RANDOM_IMAGES":
+			return {
+				...state,
+				randomImageUrls: action.payload
+        };
+        case "SET_FAVOURITE_IMAGES":
+			return {
+				...state,
+				favouriteImageUrls: action.payload
+        };
 
 		default:
 			return { ...state, appInitialState };
