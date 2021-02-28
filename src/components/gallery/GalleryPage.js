@@ -1,6 +1,7 @@
 import React from "react";
 import styled from "styled-components";
 import { useAppContext } from "../../AppContext";
+import GallerySet from './GallerySet'
 
 const TitleContainer = styled.div`
 	display: flex;
@@ -34,7 +35,7 @@ function GalleryPage() {
 				<Title id='AppName'>Gallery</Title>
 			</TitleContainer>
             <MainContainer>
-                Random dog images
+                <GallerySet />
             </MainContainer>
             
 		</>

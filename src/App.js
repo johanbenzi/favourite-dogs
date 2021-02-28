@@ -4,6 +4,7 @@ import ContextProvider from "./ContextProvider";
 import styled from "styled-components";
 import Routes from "./routes";
 import './App.css';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 const AppContainer = styled.div`
 	background: #e7e8ea;

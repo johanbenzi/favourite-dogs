@@ -1,5 +1,6 @@
 export const appInitialState = { 
-    loading: false
+    loading: false,
+    randomImageObjects: [123, 321]
 }
 
 export const appReducer = (state, action) => {
