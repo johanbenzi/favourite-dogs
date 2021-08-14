@@ -7,7 +7,7 @@
     Launce a EC2 free tier instance, open traffice, install docker, pull the image, and run the docker container.
     Here is the favorite dog app running on the cloud  http://ec2-34-221-168-194.us-west-2.compute.amazonaws.com/
 
-[Scripting - 'compare versions'' using bash](https://github.com/bingl2020/favourite-dogs/compareVersion.sh) 
+[Scripting - 'compare versions'' using bash](https://github.com/bingl2020/favourite-dogs/blob/main/compareVersions.sh) 
 
 
 #
