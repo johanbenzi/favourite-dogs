@@ -1,4 +1,4 @@
-# Here are my contributions
+# Here are my contributions:
 ## Functional Improvement
     In galary page, User can unfavorite the selected dog
     In favorite page, User can unfavorite the selected dog (reuse ImageTitle.js, deprecate FavoriteTitle.js)
@@ -8,12 +8,14 @@
     Here is the favorite dog app running on the cloud  http://ec2-34-221-168-194.us-west-2.compute.amazonaws.com/
 
 [Scripting - 'compare versions'' using bash](https://github.com/bingl2020/favourite-dogs/compareVersion.sh) 
+
+
+#
+#
+#
+#
+
 --------------------------------------------------------------------------------------------------
-
-
-
-
-
 
 
 # Getting Started with Favourite Dogs App
