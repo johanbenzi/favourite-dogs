@@ -12,7 +12,7 @@ function GallerySet() {
             <Row>
                 {
                     randomImageUrls.map((randomeImageUrl, index) => {
-                        return <ImageTile imageUrl = { randomeImageUrl } key = {index}/>;
+                        return <ImageTile imageUrl = { randomeImageUrl } favorite = {false} key = {index}/>;
                     })
                 }
             </Row>

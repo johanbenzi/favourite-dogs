@@ -29,13 +29,23 @@ const MainContainer = styled.div`
 	top: 146px;
 `;
 
-const StyledSpan = styled.span`
+const StyledRightSpan = styled.span`
 	margin-top: 20px;
 	float: right;
+`;
+const StyledLeftSpan = styled.span`
+	margin-top: 20px;
+	float: left;
 `;
 
 const StyledButton = styled(Button)`
     margin: 5px;
+`;
+
+const StyledRedButton = styled(Button)`
+    margin: 5px;
+	color: red;
+	font-weight:900;
 `;
 
 function FavouritePage() {
@@ -48,16 +58,23 @@ function FavouritePage() {
         getAllFromLocalStorage(dispatch);
 	}, []);
 
+	function refreshPage() {
+		window.location.reload(false);
+	}
 	return (
 		<>
             <TitleContainer>
                 <span>
 				    <Title>Favourites</Title>
                 </span>
-                <StyledSpan>
+				<StyledLeftSpan>
+					<StyledRedButton disabled={ favouriteImageUrls.length === 0 } 
+						onClick = { () => removeAllFromLocalStorage(dispatch) }>Clear</StyledRedButton>
+                </StyledLeftSpan>
+				<StyledRightSpan>
                     <StyledButton onClick = { () => {history.push("/")}}>Gallery</StyledButton>
-                    <StyledButton disabled={ favouriteImageUrls.length === 0 } onClick = { () => removeAllFromLocalStorage(dispatch) }>Clear</StyledButton>
-                </StyledSpan>
+					<StyledButton onClick = { () => {history.push("/favourites") }}>Refresh</StyledButton>
+                </StyledRightSpan>
 			</TitleContainer>
             <MainContainer>
                 <FavouriteSet />
