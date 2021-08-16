@@ -8,7 +8,7 @@
     Here is the favorite dog app running on the cloud  http://ec2-34-221-168-194.us-west-2.compute.amazonaws.com/
 
 [Scripting - 'compare versions'' using bash](https://github.com/bingl2020/favourite-dogs/blob/main/compareVersions.sh)
-[Scripting - 'compare versions'' using bash](https://github.com/bingl2020/favourite-dogs/blob/main/Solution.java)
+[Scripting - 'compare versions'' using Java](https://github.com/bingl2020/favourite-dogs/blob/main/Solution.java)
 
 #
 #
