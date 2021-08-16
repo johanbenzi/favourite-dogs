@@ -56,8 +56,8 @@ function GalleryPage() {
 				    <Title>Gallery</Title>
                 </span>
                 <StyledSpan>
-                    <StyledButton onClick = { () => {history.push("/favourites")}}>Favourites</StyledButton>
-                    <Button onClick = {() => getRandomImages(dispatch)}>Refresh</Button>
+					<StyledButton onClick = {() => getRandomImages(dispatch)}>Next 6 dogs</StyledButton>
+                    <StyledButton onClick = { () => {history.push("/favourites")}}>My Favourites</StyledButton>
                 </StyledSpan>
 			</TitleContainer>
             <MainContainer>

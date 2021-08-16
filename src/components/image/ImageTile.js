@@ -23,13 +23,17 @@ const StyledSpan = styled.span`
 `;
 
 function ImageTile(props) {
-    const { state, dispatch } = useAppContext();
-    const { addToLocalStorage } = useLocalStorage();
-    const [isAddedToFav, setIsAddedToFav] = useState(false);
+    const { addToLocalStorage, removeFromLocalStorage} = useLocalStorage();
+    const [isAddedToFav, setIsAddedToFav] = useState(props.favorite);
 
     const addToFavourite = (imageUrl) => {
         setIsAddedToFav(true);
         addToLocalStorage(imageUrl);
+    };
+
+    const removeFromFavourite = (imageUrl) => {
+        setIsAddedToFav(false);
+        removeFromLocalStorage(imageUrl);
     };
 
 	return (
@@ -47,6 +51,7 @@ function ImageTile(props) {
 						marginTop: "12px",
 						marginRight: "12px"
                     }}
+                    onClick = { () => removeFromFavourite(props.imageUrl) }
 					icon={faHeart}/>
                     <StyledSpan>Added</StyledSpan>
                     </> :
